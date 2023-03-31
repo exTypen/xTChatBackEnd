@@ -21,7 +21,7 @@ public class AuthController : Controller
         var userToLogin = _authService.Login(userForLoginDto);
         if (!userToLogin.Success)
         {
-            return BadRequest(userToLogin.Message);
+            return BadRequest(userToLogin);
         }
 
         var result = _authService.CreateAccessToken(userToLogin.Data);
@@ -30,7 +30,7 @@ public class AuthController : Controller
             return Ok(result);
         }
 
-        return BadRequest(result.Message);
+        return BadRequest(result);
     }
         
     [HttpPost("register")]
@@ -39,7 +39,7 @@ public class AuthController : Controller
         var userExists = _authService.UserExists(userForRegisterDto.UserName);
         if (!userExists.Success)
         {
-            return BadRequest(userExists.Message);
+            return BadRequest(userExists);
         }
 
         var registerResult = _authService.Register(userForRegisterDto, userForRegisterDto.Password);
@@ -49,6 +49,6 @@ public class AuthController : Controller
             return Ok(result);
         }
 
-        return BadRequest(result.Message);
+        return BadRequest(result);
     }
 }
