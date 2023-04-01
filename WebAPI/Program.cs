@@ -28,6 +28,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDependencyResolvers(new ICoreModule[]
+
+
 {
     new CoreModule()
 });
@@ -61,6 +63,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
+
+app.UseCors(builderC => builderC.WithOrigins().AllowAnyHeader());
 
 app.UseAuthorization();
 
