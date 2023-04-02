@@ -20,6 +20,9 @@ public class AutofacBusinessModule : Module
             
             builder.RegisterType<UserManager>().As<IUserService>();
             builder.RegisterType<UserDal>().As<IUserDal>();
+            
+            builder.RegisterType<MessageManager>().As<IMessageService>();
+            builder.RegisterType<MessageDal>().As<IMessageDal>();
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 
