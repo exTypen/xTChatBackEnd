@@ -4,7 +4,6 @@ using System.Security.Claims;
 
 namespace Core.Extensions
 {
-    //jwt'den gelen claim'leri okumak için kullanıyoruz. 
     public static class ClaimsPrincipalExtensions
     {
         public static List<string> Claims(this ClaimsPrincipal claimsPrincipal, string claimType)
@@ -16,6 +15,10 @@ namespace Core.Extensions
         public static List<string> ClaimRoles(this ClaimsPrincipal claimsPrincipal)
         {
             return claimsPrincipal?.Claims(ClaimTypes.Role);
+        }
+        public static List<string> ClaimNameIdentifier(this ClaimsPrincipal claimsPrincipal)
+        {
+            return claimsPrincipal?.Claims(ClaimTypes.NameIdentifier);
         }
     }
 }

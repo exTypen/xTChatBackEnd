@@ -23,6 +23,9 @@ public class AutofacBusinessModule : Module
             
             builder.RegisterType<MessageManager>().As<IMessageService>();
             builder.RegisterType<MessageDal>().As<IMessageDal>();
+            
+            builder.RegisterType<ChatManager>().As<IChatService>();
+            builder.RegisterType<ChatDal>().As<IChatDal>();
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 

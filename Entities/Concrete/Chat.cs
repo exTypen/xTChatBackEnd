@@ -6,4 +6,5 @@ public class Chat : IEntity
 {
     public int Id { get; set; }
     public int ChatTypeId { get; set; }
+    public DateTime LastUpdate { get; set; }
 }

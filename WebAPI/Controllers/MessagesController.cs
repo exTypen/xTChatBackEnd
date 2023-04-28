@@ -27,15 +27,4 @@ public class MessagesController : Controller
         return BadRequest(result);
     }
     
-    [HttpGet("GetAll")]
-    public IActionResult GetAll()
-    {
-        var result = _messageService.GetAll();
-        if (result.Success)
-        {
-            return Ok(result);
-        }
-
-        return BadRequest(result);
-    }
 }
