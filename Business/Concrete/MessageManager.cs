@@ -29,6 +29,10 @@ public class MessageManager : IMessageService
             return new ErrorResult(Messages.NoJwt);
         }
         int userId = Int32.Parse(_httpContextAccessor.HttpContext.User.ClaimNameIdentifier()[0]);
+        if (!_chatService.GetUsers(entity.ChatId).Contains(userId))
+        {
+            return new ErrorResult(Messages.ChatError);
+        }
         entity.SenderId = userId;
         _messageDal.Add(entity);
         var chat = _chatService.GetById(entity.ChatId).Data;

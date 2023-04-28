@@ -11,4 +11,10 @@ public static class Messages
     public static readonly string UserAlreadyExists = "Kullanıcı Adı Zaten Kayıtlı";
     public static readonly string AuthorizationDenied = "Yetersiz Yetki";
     public static readonly string NoJwt = "No JWT";
+    
+    
+    
+    public static readonly string ChatError = "Chate erişim izniniz yok";
+    
+    
 }

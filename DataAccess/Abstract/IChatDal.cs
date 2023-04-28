@@ -8,4 +8,5 @@ public interface IChatDal : IEntityRepository<Chat>
 {
     List<Chat> GetAllByUser(int userId);
     List<ChatDto> GetAllDtosByUser(int userId);
+    List<int> GetUsers(int chatId);
 }

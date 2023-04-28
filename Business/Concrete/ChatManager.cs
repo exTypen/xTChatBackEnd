@@ -64,4 +64,9 @@ public class ChatManager : IChatService
         return new SuccessDataResult<List<ChatDto>>(_chatDal.GetAllDtosByUser(userId).OrderBy(p => p.LastUpdate).Reverse().ToList());
     }
 
+    public List<int> GetUsers(int chatId)
+    {
+        return _chatDal.GetUsers(chatId);
+    }
+
 }

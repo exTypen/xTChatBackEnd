@@ -46,4 +46,15 @@ public class ChatDal : EfEntityRepositoryBase<Chat, Context>, IChatDal
             return result.ToList();
         }
     }
+
+    public List<int> GetUsers(int chatId)
+    {
+        using (var context = new Context())
+        {
+            var result = from chat in context.Chats.Where(c => c.Id == chatId)
+                join user in context.UserToChatBinds on chat.Id equals user.ChatId
+                select user.Id;
+            return result.ToList();
+        }
+    }
 }

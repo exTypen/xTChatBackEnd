@@ -10,5 +10,5 @@ public interface IChatService : IGenericService<Chat, int>
 {
     public IDataResult<List<Chat>> GetAllByUser(int userId);
     public IDataResult<List<ChatDto>> GetAllDtos();
- 
+    public List<int> GetUsers(int chatId);
 }
